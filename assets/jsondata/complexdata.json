@@ -1,0 +1,42 @@
+[{"isMsgread":true,
+  "first_name":"Blondell",
+  "profilepic":"http://dummyimage.com/222x131.png/dddddd/000000",
+  "msgtime":"7:02 AM",
+  "index":0,
+  "message":
+    [
+      { "isMe": true,
+        "msg": "Regular" },
+
+
+      { "isMe": false,
+        "msg": "hey gorgeous friends from the internet" },
+      { "isMe": false,
+        "msg": "hey gorgeous friends from the internet" },
+      { "isMe": true,
+        "msg": "hey gorgeous friends from the internet" }
+    ]
+
+},
+  {"isMsgread":true,
+    "first_name":"Blondell",
+    "profilepic":"http://dummyimage.com/222x131.png/dddddd/000000",
+    "msgtime":"7:02 AM",
+    "index":0,
+    "message":
+    [
+      { "isMe": true,
+        "msg": "Regular" },
+
+
+      { "isMe": false,
+        "msg": "hey gorgeous friends from the internet" },
+      { "isMe": false,
+        "msg": "hey gorgeous friends from the internet" },
+      { "isMe": true,
+        "msg": "hey gorgeous friends from the internet" }
+    ]
+
+  }
+
+]

@@ -56,8 +56,11 @@ class _FeedsState extends State<Feeds> {
                 ),
               ),
               ListTile(
-
                 title: InkWell(
+                  enableFeedback: true,
+                  onLongPress: (){
+
+                  },
                   onTap: () {
                     Navigator.push(
                         context,

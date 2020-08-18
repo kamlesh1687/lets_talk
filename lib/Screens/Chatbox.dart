@@ -60,7 +60,7 @@ class _ChatboxState extends State<Chatbox> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(bottom: 8),
-              child: customappbar(
+              child: CustomAppbar(
                   cname,
 
                   iconbuttons(Icons.arrow_back_ios, context, () {

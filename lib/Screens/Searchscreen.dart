@@ -16,10 +16,14 @@ class _SearchbarState extends State<Searchbar> {
           CustomAppbar(
             TextField(
               decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: iconbuttons(Icons.search, context, () {}),
                   border: InputBorder.none,
                   hintText: "Search....",
-                  hintStyle: TextStyle(fontSize: 16, color: Colors.red)),
+                  hintStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                      color: Theme.of(context).primaryColor,
+                      letterSpacing: 1.3)),
             ),
             iconbuttons(Icons.arrow_back_ios, context, () {
               Navigator.pop(context);

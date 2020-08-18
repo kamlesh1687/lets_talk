@@ -6,10 +6,10 @@ import 'package:letstalk/widgets/variableproperties.dart';
 
 // ignore: must_be_immutable
 class CustomAppbar extends StatefulWidget {
-  String titl;
+  Widget child;
   Widget icon1;
   Widget icon2;
-  CustomAppbar(this.titl, this.icon1, this.icon2);
+  CustomAppbar(this.child, this.icon1, this.icon2);
 
   @override
   _CustomAppbarState createState() => _CustomAppbarState();
@@ -35,15 +35,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
               widget.icon1,
               Container(
                 height: 50,
-                child: Center(
-                    child: Text(
-                  widget.titl,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                      color: Theme.of(context).primaryColor,
-                      letterSpacing: 1.3),
-                )),
+                child: Center(child: widget.child),
               ),
               widget.icon2,
             ],

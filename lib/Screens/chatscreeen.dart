@@ -24,7 +24,7 @@ class _ChatscreenState extends State<Chatscreen> {
         child: Column(
           children: <Widget>[
             CustomAppbar(
-              "Messages",
+              Text("Messages"),
               iconbuttons(Icons.arrow_back_ios, context, () {
                 Navigator.pop(context);
               }),

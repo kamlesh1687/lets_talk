@@ -8,24 +8,20 @@ import 'package:letstalk/widgets/variableproperties.dart';
 import 'package:letstalk/widgets/widgets.dart';
 import 'package:letstalk/main.dart';
 
-
 class Chatbox extends StatefulWidget {
   final String cname;
 
   final int index;
 
-
-  Chatbox(
-      {@required this.cname,
-      @required this.index,
-     });
+  Chatbox({
+    @required this.cname,
+    @required this.index,
+  });
 
   _ChatboxState createState() => _ChatboxState(cname, index);
 }
 
 final inputtextcontroller = TextEditingController();
-
-
 
 @override
 class _ChatboxState extends State<Chatbox> {
@@ -40,7 +36,6 @@ class _ChatboxState extends State<Chatbox> {
   _ChatboxState(
     this.cname,
     this.index,
-
   );
 
   void setState(fn) {
@@ -51,25 +46,28 @@ class _ChatboxState extends State<Chatbox> {
   Widget build(BuildContext context) {
     double heigthofscreen = MediaQuery.of(context).size.width;
     return Scaffold(
-
         body: SafeArea(
-
       child: Container(
-        color:  bgColor,
+        color: bgColor,
         child: Column(
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(bottom: 8),
               child: CustomAppbar(
-                  cname,
-
+                  Text(
+                    cname,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: Theme.of(context).primaryColor,
+                        letterSpacing: 1.3),
+                  ),
                   iconbuttons(Icons.arrow_back_ios, context, () {
                     Navigator.pop(context);
                   }),
                   iconbuttons(Icons.more_vert, context, () {})),
             ),
             Expanded(
-
               child: FutureBuilder(
                   future: datajson(context),
                   builder: (context, snapshot) {
@@ -79,27 +77,26 @@ class _ChatboxState extends State<Chatbox> {
                           itemCount: snapshot.data[index].message.length,
                           reverse: true,
                           itemBuilder: (BuildContext context, int index2) {
-                         dta=snapshot.data[index];
-                         msgs=dta.message[index2];
+                            dta = snapshot.data[index];
+                            msgs = dta.message[index2];
 
                             return Column(
                               crossAxisAlignment: dta.message[index2].isMe
-                                  ?CrossAxisAlignment.end
+                                  ? CrossAxisAlignment.end
                                   : CrossAxisAlignment.start,
                               children: <Widget>[
                                 InkWell(
-                                  onTap: (){
+                                  onTap: () {
                                     print(snapshot.data[index].message.length);
                                   },
                                   child: Container(
-
                                       constraints: BoxConstraints(
                                           maxWidth: (heigthofscreen) * (3 / 4)),
-                                      decoration: BoxDecoration( boxShadow: [
-                                        cardShadowpositive,
-                                        cardShadownegative
-                                      ]  ,
-
+                                      decoration: BoxDecoration(
+                                          boxShadow: [
+                                            cardShadowpositive,
+                                            cardShadownegative
+                                          ],
                                           color: dta.message[index2].isMe
                                               ? Theme.of(context).accentColor
                                               : Theme.of(context).primaryColor,
@@ -122,29 +119,23 @@ class _ChatboxState extends State<Chatbox> {
                   }),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 15,top: 12),
+              padding: EdgeInsets.only(bottom: 15, top: 12),
               child: Material(
                 color: Colors.transparent,
                 child: Row(
                   children: <Widget>[
                     IconButton(
                       enableFeedback: true,
-                      onPressed: () {
-
-                      },
+                      onPressed: () {},
                       icon: Icon(
                         Icons.insert_emoticon,
                         color: Theme.of(context).primaryColor,
                       ),
                     ),
                     Container(
-
                       decoration: BoxDecoration(
-                          color:cardColorbg,
-                          boxShadow: [
-                            cardShadowpositive,
-                            cardShadownegative
-                          ],
+                          color: cardColorbg,
+                          boxShadow: [cardShadowpositive, cardShadownegative],
                           borderRadius: BorderRadius.circular(10)),
                       padding: EdgeInsets.only(left: 4),
                       width: MediaQuery.of(context).size.width - 100,
@@ -172,8 +163,6 @@ class _ChatboxState extends State<Chatbox> {
                     IconButton(
                       enableFeedback: true,
                       onPressed: () {
-
-
                         print(messageMe);
                         inputtextcontroller.clear();
                       },
@@ -192,6 +181,3 @@ class _ChatboxState extends State<Chatbox> {
     ));
   }
 }
-
-
-

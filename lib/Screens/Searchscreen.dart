@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:letstalk/widgets/widgets.dart';
 
 class Searchbar extends StatefulWidget {
   @override
@@ -9,38 +10,31 @@ class _SearchbarState extends State<Searchbar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Padding(
-          padding: const EdgeInsets.only(
-            right: 13,
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.0),
-              color: Colors.white,
+      body: SafeArea(
+          child: Column(
+        children: [
+          CustomAppbar(
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                color: Colors.white,
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.search),
+                    suffixIcon: Icon(Icons.access_alarm),
+                    border: InputBorder.none,
+                    hintText: "Search....",
+                    hintStyle: TextStyle(fontSize: 16, color: Colors.red)),
+              ),
             ),
-            child: TextField(
-              decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  suffixIcon: Icon(Icons.access_alarm),
-                  border: InputBorder.none,
-                  hintText: "Search....",
-                  hintStyle: TextStyle(fontSize: 16, color: Colors.red)),
-            ),
-          ),
-        ),
-        leading: Icon(Icons.scanner),
-        actions: [
-          Icon(Icons.add_a_photo),
-          Container(
-            width: 15,
-          ),
+            iconbuttons(Icons.arrow_back_ios, context, () {
+              Navigator.pop(context);
+            }),
+            iconbuttons(Icons.more_vert, context, () {}),
+          )
         ],
-      ),
-      body: Center(
-        child: Text("hello"),
-      ),
+      )),
     );
   }
 }

@@ -29,7 +29,14 @@ class _FeedscreenState extends State<Feedscreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     CustomAppbar(
-                      "LetStalk",
+                      Text(
+                        "LetStalk",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                            color: Theme.of(context).primaryColor,
+                            letterSpacing: 1.3),
+                      ),
                       iconbuttons(Icons.account_circle, context, () {}),
                       iconbuttons(Icons.chat, context, () {
                         Navigator.push(context,

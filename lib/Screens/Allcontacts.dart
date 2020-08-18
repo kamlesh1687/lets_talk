@@ -19,7 +19,14 @@ class _AllcontactsState extends State<Allcontacts> {
         child: Column(
           children: <Widget>[
             CustomAppbar(
-              "Select contact",
+              Text(
+                "Select Contact",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: Theme.of(context).primaryColor,
+                    letterSpacing: 1.3),
+              ),
               iconbuttons(Icons.arrow_back_ios, context, () {
                 Navigator.pop(context);
               }),

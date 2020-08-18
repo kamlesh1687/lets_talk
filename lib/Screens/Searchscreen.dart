@@ -29,6 +29,13 @@ class _SearchbarState extends State<Searchbar> {
               Navigator.pop(context);
             }),
             iconbuttons(Icons.more_vert, context, () {}),
+          ),
+          Container(
+            child: Center(
+              child:Text(
+                "This is search screen"
+              )
+            ),
           )
         ],
       )),

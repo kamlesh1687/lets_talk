@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white,
           cardColor: Colors.white,
         ),
-        home: SplashScreen());
+        home: SplashScreen()
+    );
   }
 }

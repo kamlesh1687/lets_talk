@@ -18,30 +18,25 @@ class CustomAppbar extends StatefulWidget {
 class _CustomAppbarState extends State<CustomAppbar> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 6),
-      child: Container(
-        height: 50,
-        decoration: BoxDecoration(boxShadow: [
-          cardShadowpositive,
-          cardShadownegative,
-        ], borderRadius: BorderRadius.circular(10)),
-        child: Material(
-          color: cardColorbg,
-          borderRadius: BorderRadius.circular(10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              widget.icon1,
-              Container(
-                height: 50,
-                child: Center(child: widget.child),
-              ),
-              widget.icon2,
-            ],
+    return Row(
+      children: [
+        widget.icon1,
+        Expanded(
+          child: Container(
+            margin: EdgeInsets.only(top: 5),
+            height: 60,
+            decoration: BoxDecoration(boxShadow: [
+              cardShadowpositive,
+              cardShadownegative,
+            ], borderRadius: BorderRadius.circular(10)),
+            child: Container(
+              height: 50,
+              child: Center(child: widget.child),
+            ),
           ),
         ),
-      ),
+        widget.icon2
+      ],
     );
   }
 }

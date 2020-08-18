@@ -14,19 +14,12 @@ class _SearchbarState extends State<Searchbar> {
           child: Column(
         children: [
           CustomAppbar(
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: Colors.white,
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    suffixIcon: Icon(Icons.access_alarm),
-                    border: InputBorder.none,
-                    hintText: "Search....",
-                    hintStyle: TextStyle(fontSize: 16, color: Colors.red)),
-              ),
+            TextField(
+              decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  border: InputBorder.none,
+                  hintText: "Search....",
+                  hintStyle: TextStyle(fontSize: 16, color: Colors.red)),
             ),
             iconbuttons(Icons.arrow_back_ios, context, () {
               Navigator.pop(context);

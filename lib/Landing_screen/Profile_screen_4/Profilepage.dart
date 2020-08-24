@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:letstalk/widgets/variableproperties.dart';
+import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
+import 'package:letstalk/Reusable_widgets/variableproperties.dart';
 
+import 'package:letstalk/Services/Auth_services.dart';
 
-class Profilepage extends StatefulWidget {
-  @override
-  _ProfilepageState createState() => _ProfilepageState();
-}
-
-class _ProfilepageState extends State<Profilepage> {
+// ignore: must_be_immutable
+class Profilepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print("building profilePage");
     return Container(
-      color:   bgColor,
+      color: bgColor,
       child: ListView(
         children: <Widget>[
           Padding(
@@ -22,21 +21,21 @@ class _ProfilepageState extends State<Profilepage> {
                   Column(
                     children: <Widget>[
                       CircleAvatar(
-
                         radius: 46.0,
                         backgroundImage: AssetImage("assets/images/feed/c.jpg"),
                         backgroundColor: Colors.transparent,
                       ),
                       SizedBox(height: 20),
                       Text(
-                        'Kamlesh Vaishnav',
+                        currentUser == null ? "wait" : currentUser.username,
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 10),
                       Text(
-                        'Chittorgarh, Rajasthan',
+                        currentUser == null ? "wait" : currentUser.bio,
                         style: TextStyle(color: Colors.grey, fontSize: 15.0),
                       ),
+                      GoogleSignInButton(text: "Sign Out", onPressed: () {})
                     ],
                   ),
                 ],
@@ -187,12 +186,3 @@ class _ProfilepageState extends State<Profilepage> {
     );
   }
 }
-
-
-
-
-
-
-
-
-

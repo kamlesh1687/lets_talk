@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:letstalk/Screens/Chatbox.dart';
+import 'package:letstalk/Other_screens/Chats_related/Chat_room/Chatbox.dart';
+import 'package:letstalk/Data_models/messagemodel.dart';
+import 'package:letstalk/Reusable_widgets/variableproperties.dart';
+import 'package:letstalk/Reusable_widgets/Custom_widgets/Custom_appbar.dart';
 import 'package:letstalk/main.dart';
-import 'package:letstalk/modals/messagemodel.dart';
-import 'package:letstalk/widgets/variableproperties.dart';
-import 'package:letstalk/widgets/widgets.dart';
+
+import 'package:letstalk/Reusable_widgets/widgets.dart';
 
 class Allcontacts extends StatefulWidget {
   @override
@@ -14,24 +16,24 @@ class _AllcontactsState extends State<Allcontacts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(
+        Text(
+          "Select Contact",
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+              color: Theme.of(context).primaryColor,
+              letterSpacing: 1.3),
+        ),
+        iconbuttons(Icons.arrow_back_ios, context, () {
+          Navigator.pop(context);
+        }),
+        iconbuttons(Icons.more_vert, context, () {}),
+      ),
       backgroundColor: bgColor,
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            CustomAppbar(
-              Text(
-                "Select Contact",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
-                    color: Theme.of(context).primaryColor,
-                    letterSpacing: 1.3),
-              ),
-              iconbuttons(Icons.arrow_back_ios, context, () {
-                Navigator.pop(context);
-              }),
-              iconbuttons(Icons.more_vert, context, () {}),
-            ),
             Expanded(
               child: FutureBuilder(
                   future: datajson(context),

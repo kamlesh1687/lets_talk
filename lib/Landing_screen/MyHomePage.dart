@@ -1,36 +1,29 @@
 import 'package:fancy_bar/fancy_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:letstalk/Screens/Searchscreen.dart';
-import 'package:letstalk/Screens/Settings.dart';
+import 'package:letstalk/Reusable_widgets/variableproperties.dart';
 
-import 'package:letstalk/homeScreen/Profilepage.dart';
-import 'package:letstalk/widgets/variableproperties.dart';
-import 'package:letstalk/widgets/widgets.dart';
-import '../homeScreen/Profilepage.dart';
-import '../homeScreen/feedscreen.dart';
+import 'Feed_Screen_1/feedscreen.dart';
+import 'Profile_screen_4/Profilepage.dart';
+import 'Search_screen_2/SearchPage.dart';
 
+// ignore: must_be_immutable
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-List<Widget> pages = [
-  Feedscreen(),
-  Searchbar(),
-  Setting(),
-  Profilepage(),
-];
-
-int currentpage = 0;
-
 class _MyHomePageState extends State<MyHomePage> {
+  int currentpage = 0;
+
   @override
   Widget build(BuildContext context) {
+    print("building home page");
+
     return Scaffold(
         backgroundColor: bgColor,
         extendBody: true,
-        bottomNavigationBar: nav(FancyBottomBar(
+        bottomNavigationBar: FancyBottomBar(
           type: FancyType.FancyV1,
           selectedIndex: currentpage, // Fancy Bar Type
           items: [
@@ -60,15 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
               currentpage = index;
             });
           },
-        )),
-        body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: pages[currentpage],
-              )
-            ],
-          ),
+        ),
+        body: IndexedStack(
+          index: currentpage,
+          children: [Feedscreen(), SearchPage(), Container(), Profilepage()],
         ));
   }
 }
